@@ -152,6 +152,6 @@ elPasswords.addEventListener("keyup", ()=>{
   }
 });
 
-elBtn.addEventListener("click", () =>{
-  alert("Congratulation");
-})
+// elBtn.addEventListener("click", () =>{
+//   alert("Congratulation");
+// })
