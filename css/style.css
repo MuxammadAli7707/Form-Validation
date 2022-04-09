@@ -28,23 +28,29 @@ body {
 .form__box {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .form__input {
   padding: 15px 10px;
   border: 2px solid #949494;
   border-radius: 4px;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  width: 100%;
+}
+.bxs-error-alt {
+  color: #ee0004;
+  font-size: 22px;
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: -40px;
 }
 .form__input:focus {
   outline: none;
 }
 
-.number {
-  border: 2px solid #543FD3;
-}
-.email {
-  border: 2px solid #ee0004;
-}
+
 
 .form__input::placeholder {
   font-weight: 400;
