@@ -30,13 +30,16 @@ let baza = [
 elForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
+  // alert("Congratulation you've successfully registered");
+
   elForm.style.display = 'none';
   elList.style.display = 'block';
-  elTitle.textContent = 'Siz muvaffqiyatli ro\'yhatdan o\'tdingiz' 
+  elTitle.textContent = 'You have successfully registered' 
   elList.innerHTML = `
   <li class="hero__item"><span class="hero__name">Login:</span>${baza[0].name}</li>
   <li class="hero__item"><span class="hero__name">E-mail:</span>${baza[0].mail}</li>
-  <li class="hero__item"><span class="hero__name">Parolingiz:</span>${baza[0].password}</li>
+  <li class="hero__item"><span class="hero__name">Number:</span>${baza[0].num}</li>
+  <li class="hero__item"><span class="hero__name">Password:</span>${baza[0].password}</li>
   `
 });
 
@@ -126,7 +129,7 @@ elNumber.addEventListener("keyup", () =>{
       nameBorder.style.border = "2px solid #949494";
       elErr.style.display = "none";
       numberMessage.textContent = "Succesfully ✔"
-      baza[0].num = elNumber.value
+      baza[0].num = elNumber.value;
       bool = true;
       ++count
 

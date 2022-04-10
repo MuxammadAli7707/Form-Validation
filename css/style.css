@@ -27,15 +27,15 @@ body {
 }
 
 .hero__item {
-  font-size: 18px;
-  color: #949494;
+  font-size: 22px;
+  color: #1a1a1a;
   padding: 10px 0;
 }
 
 .hero__name {
   font-weight: 600;
   color: #000;
-  margin-right: 10px;
+  margin-right: 18px;
 }
 
 .label {
