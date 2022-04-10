@@ -30,17 +30,16 @@ let baza = [
 elForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  // alert("Congratulation you've successfully registered");
-
-  elForm.style.display = 'none';
-  elList.style.display = 'block';
-  elTitle.textContent = 'You have successfully registered' 
-  elList.innerHTML = `
-  <li class="hero__item"><span class="hero__name">Login:</span>${baza[0].name}</li>
-  <li class="hero__item"><span class="hero__name">E-mail:</span>${baza[0].mail}</li>
-  <li class="hero__item"><span class="hero__name">Number:</span>${baza[0].num}</li>
-  <li class="hero__item"><span class="hero__name">Password:</span>${baza[0].password}</li>
-  `
+  alert("You have successfully registered")
+  // elForm.style.display = 'none';
+  // elList.style.display = 'block';
+  // elTitle.textContent = 'You have successfully registered' 
+  // elList.innerHTML = `
+  // <li class="hero__item"><span class="hero__name">Login:</span>${baza[0].name}</li>
+  // <li class="hero__item"><span class="hero__name">E-mail:</span>${baza[0].mail}</li>
+  // <li class="hero__item"><span class="hero__name">Number:</span>${baza[0].num}</li>
+  // <li class="hero__item"><span class="hero__name">Password:</span>${baza[0].password}</li>
+  // `
 });
 
 elName.addEventListener("keyup", () =>{
@@ -94,7 +93,6 @@ elMail.addEventListener("keyup", () =>{
       baza[0].mail = elMail.value
       bool = true;
       ++count
-
     }
     else {
       nameBorder.style.border = "2px solid red";
@@ -190,11 +188,8 @@ elPasswords.addEventListener("keyup", ()=>{
       elEror.style.display = "none";
       passwordsMessage.textContent = "Succesfully ✔"
       bool = true;
-      
-      if(bool && count == 4) {
-        elBtn.removeAttribute('disabled')
-        elBtn.style.opacity = '1'
-      }
+      elBtn.removeAttribute('disabled')
+      elBtn.style.opacity = '1'
     }
     else {
       nameBorder.style.border = "2px solid red";
@@ -206,4 +201,5 @@ elPasswords.addEventListener("keyup", ()=>{
     passwordsMessage.textContent = e;
     bool = false
   }
+
 });
