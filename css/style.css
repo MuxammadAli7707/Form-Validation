@@ -20,6 +20,24 @@ body {
   line-height: 56px;
   color: #000;
 }
+
+.hero__list {
+  display: none;
+  list-style-type: none;
+}
+
+.hero__item {
+  font-size: 18px;
+  color: #949494;
+  padding: 10px 0;
+}
+
+.hero__name {
+  font-weight: 600;
+  color: #000;
+  margin-right: 10px;
+}
+
 .label {
   font-weight: 400;
   font-size: 14px;
@@ -50,18 +68,15 @@ body {
   outline: none;
 }
 
-
-
 .form__input::placeholder {
   font-weight: 400;
   font-size: 16px;
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 .input__btn {
   border: none;
   border-radius: 4px;
   width: 100%;
   padding: 10px;
+  opacity: 0.4;
 }
-
-

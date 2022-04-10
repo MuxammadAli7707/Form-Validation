@@ -10,16 +10,45 @@ const elErro = document.getElementById("erro");
 const elErr = document.getElementById("err");
 const elEr = document.getElementById("er");
 const elEror = document.getElementById("eror");
+const elTitle = document.getElementById('title');
+const elList = document.getElementById('list');
+
+
+let count = 0;
+let bool = false;
+
+
+let baza = [
+  {
+    name: '',
+    mail: '',
+    num: '',
+    password: ''
+  }
+];
+
+elForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  elForm.style.display = 'none';
+  elList.style.display = 'block';
+  elTitle.textContent = 'Siz muvaffqiyatli ro\'yhatdan o\'tdingiz' 
+  elList.innerHTML = `
+  <li class="hero__item"><span class="hero__name">Login:</span>${baza[0].name}</li>
+  <li class="hero__item"><span class="hero__name">E-mail:</span>${baza[0].mail}</li>
+  <li class="hero__item"><span class="hero__name">Parolingiz:</span>${baza[0].password}</li>
+  `
+});
 
 elName.addEventListener("keyup", () =>{
   let nameMessage = document.getElementById("name-text");
   let nameBorder = document.getElementById("fname");
   try {
     if(elName.value == "") {
-      nameBorder.style.border = "2px solid red"; 
+      nameBorder.style.border = "2px solid red";
       elError.style.display = "block";
       throw "Please enter your username.";
-    } 
+    }
     else if(elName.value.match(/[0-9]/)) {
       nameBorder.style.border = "2px solid red";
       elError.style.display = "block";
@@ -33,12 +62,16 @@ elName.addEventListener("keyup", () =>{
     else {
       nameBorder.style.border = "2px solid #949494";
       elError.style.display = "none";
-      throw "Succesfully ✔"
+      nameMessage.textContent = "Succesfully ✔"
+      baza[0].name = elName.value
+      bool = true
+      ++count
     }
-    nameMessage.textContent = "";
+    // nameMessage.textContent = "";
 
   } catch (e) {
     nameMessage.textContent = e;
+    bool = false
   }
 });
 
@@ -47,24 +80,29 @@ elMail.addEventListener("keyup", () =>{
   let nameBorder = document.getElementById("fname");
   try {
     if(elMail.value == "") {
-      nameBorder.style.border = "2px solid red"; 
+      nameBorder.style.border = "2px solid red";
       elErro.style.display = "block";
       throw "Please enter your email address.";
-    } 
+    }
     else if(elMail.value.includes("@")) {
       nameBorder.style.border = "2px solid #949494";
       elErro.style.display = "none";
-      throw "Succesfully ✔";
+      emailMessage.textContent = "Succesfully ✔"
+      baza[0].mail = elMail.value
+      bool = true;
+      ++count
+
     }
     else {
       nameBorder.style.border = "2px solid red";
       elErro.style.display = "block";
       throw "Please fill in a valid email address.";
     }
-    emailMessage.textContent = "";
+    // emailMessage.textContent = "";
 
   } catch (e) {
     emailMessage.textContent = e;
+    bool = false
   }
 });
 
@@ -75,10 +113,10 @@ elNumber.addEventListener("keyup", () =>{
   let nameBorder = document.getElementById("fname");
   try {
     if(num.length == 0) {
-      nameBorder.style.border = "2px solid red"; 
+      nameBorder.style.border = "2px solid red";
       elErr.style.display = "block";
       throw "Please enter your phone number.";
-    } 
+    }
     else if(num.length != 13) {
       nameBorder.style.border = "2px solid red";
       elErr.style.display = "block";
@@ -87,16 +125,21 @@ elNumber.addEventListener("keyup", () =>{
     else if(num[0] == "+" && +a) {
       nameBorder.style.border = "2px solid #949494";
       elErr.style.display = "none";
-      throw "Succesfully ✔";
+      numberMessage.textContent = "Succesfully ✔"
+      baza[0].num = elNumber.value
+      bool = true;
+      ++count
+
     } else {
       nameBorder.style.border = "2px solid red";
       elErr.style.display = "block";
       throw "Please fill in a valid phone number.";
     }
-    numberMessage.textContent = "";
+    // numberMessage.textContent = "";
 
   } catch (e) {
     numberMessage.textContent = e;
+    bool = false
   }
 });
 
@@ -106,24 +149,27 @@ elPassword.addEventListener("keyup", ()=>{
 
   try {
     if(elPassword.value == ""){
-      nameBorder.style.border = "2px solid red"; 
+      nameBorder.style.border = "2px solid red";
       elEr.style.display = "block";
       throw "Please enter your password.";
     }
     else if(elPassword.value.match(/[A-Z]/) && elPassword.value.length <= 8){
       nameBorder.style.border = "2px solid #949494";
       elEr.style.display = "none";
-      throw "Succesfully ✔";
+      passwordMessage.textContent = "Succesfully ✔"
+      baza[0].password = elPassword.value
+      bool = true;
+      ++count
     }
     else {
       nameBorder.style.border = "2px solid red";
       elEr.style.display = "block";
       throw "Please fill in a valid phone number.";
     }
-    passwordMessage.textContent = "";
+    // passwordMessage.textContent = "";
   } catch (e) {
     passwordMessage.textContent = e;
-    console.log(passwordMessage);
+    bool = false
   }
 });
 elPasswords.addEventListener("keyup", ()=>{
@@ -132,22 +178,29 @@ elPasswords.addEventListener("keyup", ()=>{
 
   try {
     if(elPasswords.value == ""){
-      nameBorder.style.border = "2px solid red"; 
+      nameBorder.style.border = "2px solid red";
       elEror.style.display = "block";
       throw "Please enter your password.";
     }
     else if(elPasswords.value === elPassword.value){
       nameBorder.style.border = "2px solid #949494";
       elEror.style.display = "none";
-      throw "Succesfully ✔";
+      passwordsMessage.textContent = "Succesfully ✔"
+      bool = true;
+      
+      if(bool && count == 4) {
+        elBtn.removeAttribute('disabled')
+        elBtn.style.opacity = '1'
+      }
     }
     else {
       nameBorder.style.border = "2px solid red";
       elEror.style.display = "block";
       throw "Please fill in a valid phone number.";
     }
-    passwordsMessage.textContent = "";
+    // passwordsMessage.textContent = "";
   } catch (e) {
     passwordsMessage.textContent = e;
+    bool = false
   }
 });

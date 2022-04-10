@@ -16,8 +16,8 @@
 
   <section id="hero" class="hero">
     <div class="hero__box">
-      <h2 class="hero__title mb-4">Example form</h2>
-      <form action="https://echo.htmlacademy.ru" id="form" class="form">
+      <h2 class="hero__title mb-4" id="title">Example form</h2>
+      <form id="form" class="form">
         <div class="form__box">
           <label for="fname" class="mb-2">
             Name
@@ -46,7 +46,7 @@
           <label for="fpassword" class="mb-2 label">
             Password
           </label>
-          <input type="password" name="Password" id="fpassword" placeholder="Password" class="form__input">
+          <input type="text" name="Password" id="fpassword" placeholder="Password" class="form__input">
           <i id="er" class='bx bxs-error-alt'></i>
           <p id="password-text" class="mb-4 text-danger fs-5"></p>
         </div>
@@ -54,12 +54,17 @@
           <label for="fpasswords" class="mb-2 label">
             Please confirm your password
           </label>
-          <input type="password" name="Password" id="fpasswords" placeholder="Password" class="form__input">
+          <input type="text" name="Password" id="fpasswords" placeholder="Password" class="form__input">
           <i id="eror" class='bx bxs-error-alt'></i>
           <p id="passwords-text" class="mb-4 text-danger fs-5"></p>
         </div>
-        <button id="fbtn" type="submit" class="input__btn btn-primary">Submit</button>
+        <button id="fbtn" type="submit" class="input__btn btn-primary" disabled>Submit</button>
       </form>
+
+      <ul class="hero__list" id="list">
+        
+      </ul>
+
     </div>
 
   </section>
