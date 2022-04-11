@@ -43,6 +43,7 @@ body {
   font-size: 14px;
   line-height: 17px;
 }
+
 .form__box {
   display: flex;
   flex-direction: column;
